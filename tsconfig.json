@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    // outDir - расположение сборки
+    "outDir": "./dist/",
+    // noImplicitAny - строгая типизация переменных, функций и т.д. с возможностью указания для нит типа Any
+    "noImplicitAny": true,
+    // module - указываем модульную систему
+    "module": "esnext",
+    // target - версия ES в которую будет компилироваться код
+    "target": "es5",
+    // jsx - Позволяет использовать синтаксические конструкции присущие файлам расширения jsx
+    "jsx": "react-jsx",
+    // allowJs - позволяет компилятору обрабатывать не только ts, но js  файлы
+    "allowJs": true,
+    // moduleResolution - определяет тип импортов, принимает след. парметры: node или classic
+    "moduleResolution": "node",
+    // Для абсолютного импорта
+    "baseUrl": ".",
+    // esModuleInterop - позволяет рабтать с пакетами, которые подключаются с помощью
+    // синтаксиса commonJS путем использования import/export
+    "esModuleInterop": true,
+    // allowSyntheticDefaultImports - позволяет не применять конструкцию * as
+    // для поключения билбиотек не имеющих default export(ts-loader или babel-loader)
+    "allowSyntheticDefaultImports": true,
+  },
+  // настройки для возможности поключения библиотек в webpack-config с помощью import
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
