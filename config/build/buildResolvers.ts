@@ -11,6 +11,7 @@ export function buildResolvers(options: BuildOptions): webpack.ResolveOptions {
         preferAbsolute: true,
         // Абсолютные пути
         modules: [options.paths.src, 'node_modules'],
+        // Название основного файла откуда берутся экспорты
         mainFiles:['index'],
         // Приставка для абсолютного импорта
         alias: {}
