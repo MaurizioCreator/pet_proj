@@ -28,7 +28,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
             rules: buildLoaders(options),
         },
         // resolve - параметр включающий в себя типы расшерений, которые не требуется прописывать при импортировании различных файлов(модулей)
-        resolve: buildResolvers(),
+        resolve: buildResolvers(options),
         // inline-source-map - настройка позволяющая определять какому файлу принадлежит ошибка в собранном js файле при изменении
         devtool: isDev ? 'inline-source-map' : undefined,
         // сервер с лайв релоудом
