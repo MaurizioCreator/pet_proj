@@ -5,12 +5,25 @@ import {BuildOptions} from "./types/config";
 // Функция возвращающая Лоудеры для различных модулей
 export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
 
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
 
     // Если не используем TS - нужно установить babel-loader
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
+    }
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+            use: [
+        {
+            loader: 'file-loader',
+        },
+                ],
     }
 
     const cssLoader = {
@@ -37,6 +50,9 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
     }
 
     return [
+        fileLoader,
+        // Правила работы с файлами расширения svg
+        svgLoader,
         // Правила работы с модулями расширения ts
         typescriptLoader,
         // Правила работы с модулями расширения css/scss
